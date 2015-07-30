@@ -41,6 +41,10 @@ class Api::V1::ItemsController < ApplicationController
     respond_with items_by_quantity.first(params['quantity'])
   end
 
+  def invoice_items
+    respond_with InvoiceItem.where(item_id: params['item_id'])
+  end
+
   private
 
   def find_param
